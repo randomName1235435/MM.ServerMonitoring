@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+    <PackageReference Include="Refit" Version="6.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <ProjectReference Include="..\..\..\Shared\Shared.Src\MM.ServerMonitoring.Provider.WebApi.Dto.Model\MM.ServerMonitoring.Provider.WebApi.Dto.Model.csproj" />
+	  <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.Interface\MM.ServerMonitoring.Consumer.Wpf.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

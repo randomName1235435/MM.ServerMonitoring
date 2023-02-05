@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="11.0.1" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\Shared\Shared.Src\MM.ServerMonitoring.Provider.WebApi.Dto.Model\MM.ServerMonitoring.Provider.WebApi.Dto.Model.csproj" />
+        <ProjectReference Include="..\MM.ServerMonitoring.Provider.WebApi.Interface\MM.ServerMonitoring.Provider.WebApi.Interface.csproj" />
+    </ItemGroup>
+
+</Project>

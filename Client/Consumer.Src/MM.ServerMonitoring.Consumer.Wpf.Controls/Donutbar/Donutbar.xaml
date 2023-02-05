@@ -1,0 +1,44 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:donutbar="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Controls.Donutbar"
+    mc:Ignorable="d"
+    x:Class="MM.ServerMonitoring.Consumer.Wpf.Controls.Donutbar.Donutbar"
+    x:Name="UserControl" Height="50" Width="50">
+    <UserControl.Resources>
+        <donutbar:PercentStringConverter x:Key="PercentStringConverter" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--<ed:Arc x:Name="AeussereKreis" 
+                    Grid.Row="0" 
+                Grid.Column="0" 
+                Grid.RowSpan="3" 
+                Grid.ColumnSpan="3" 
+                ArcThickness="{Binding Path =ArcThickness, ElementName=UserControl}" 
+                EndAngle="360" 
+                Fill="{Binding Path =FillColor, ElementName=UserControl}" 
+                Margin="0.0,0,0,0" 
+                Stretch="None" 
+                Stroke="{Binding Path =FillColor, ElementName=UserControl}" 
+                StartAngle="0" 
+                StrokeDashArray="1 0" 
+                StrokeDashOffset="1"/>
+        <ed:Arc x:Name="InnererKreis" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="3" ArcThickness="{Binding Path =ArcThickness, ElementName=UserControl}" EndAngle="360" Fill="{Binding Path =ContentColor, ElementName=UserControl}" Margin="0,0,0,0" Stretch="None" Stroke="{Binding  Path =ContentColor, ElementName=UserControl}" StartAngle="{Binding Path =Percent, ElementName=UserControl, Converter={ StaticResource converter }, ConverterParameter=0.8}" StrokeDashArray="1 0" StrokeDashOffset="1"/>-->
+        <TextBlock x:Name="InnererTextblock" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,0"
+                   TextWrapping="Wrap"
+                   Text="{Binding Path =Percent, ElementName=UserControl, Converter={ StaticResource PercentStringConverter }}"
+                   VerticalAlignment="Center" Foreground="{Binding Path =FontColor, ElementName=UserControl}" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,11 @@
+﻿{
+  "profiles": {
+    "MM.ServerMonitoring.ActionExecuter.Hosting.BackgroundService": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

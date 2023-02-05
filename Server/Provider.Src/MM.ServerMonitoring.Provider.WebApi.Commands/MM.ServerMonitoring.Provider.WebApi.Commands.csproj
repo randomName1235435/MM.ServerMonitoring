@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared.Src\MM.ServerMonitoring.Provider.WebApi.Repository.EntityFramework.Model\MM.ServerMonitoring.Repository.EntityFramework.Model.csproj" />
+    <ProjectReference Include="..\..\..\Shared\Shared.Src\MM.ServerMonitoring.Repository.EntityFramework.Service\MM.ServerMonitoring.Repository.EntityFramework.Service.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Provider.WebApi.Interface\MM.ServerMonitoring.Provider.WebApi.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

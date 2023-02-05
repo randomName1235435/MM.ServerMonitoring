@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MM.ServerMonitoring.Provider.WebApi.Repository.EntityFramework.Infrastructure\MM.ServerMonitoring.Repository.EntityFramework.Infrastructure.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Provider.WebApi.Repository.EntityFramework.Model\MM.ServerMonitoring.Repository.EntityFramework.Model.csproj" />
+  </ItemGroup>
+
+</Project>

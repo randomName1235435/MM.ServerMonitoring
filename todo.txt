@@ -1,0 +1,45 @@
+Client
+- better messagebox - popup flying in from above
+- target page (nice2have possible in place creation for target/parameter)
+- fancy execution result view (grouped by monitor; last 5 result from each monitor red/green light)
+- simple caching
+- ctrl+F fuer suchen implementieren in den gridViews
+- bei views mit mehr als 10000 zeilen, die daten in happen (a 10000 stueck) laden (simpleresultview)
+- fix design of filtercombobox, and equalize with textbox
+- sample cli application would be nice
+
+Server
+	Provider
+	- implement http If-Modified-Since
+	- add get last 1000 monitoractionexecutionresult in controller
+	- wrap IDefaultCrudService with more generic service, so shell dont need ref to rest.refit
+	- adding self/public documentation for api endpoints (    //  todo: xml docu bei apicontrollern for online docu?)
+	- adding open data? query options etc
+	ActionExecuter
+	- add wmi
+	- add snmp
+	- db/ef health/query 
+	- add better logging
+
+Database
+* add script for initial data
+* add script for sample data (ping auf 127.0.0.1, http request auf google.de)
+
+All
+* fast database connection test at start (api & worker can throw exception, consumer must work(can ask health site from ef/api), all disabled and show message/icon)
+* using guard for argument null check
+* remove unused code
+* better logging (info,debug,error, log parameter, log api calls, use logging framework/serilog for structured logging)
+* add integration tests
+* Actionparameter with Either<Dns,IP, URL> 
+* migrate nuget packages/update packages
+
+- correkt handling if db not found from alle projects (0/3)
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.Interface\MM.ServerMonitoring.Consumer.Wpf.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="DashboardCounter\DashboardCounter.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Donutbar\Donutbar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PhaseArrow\PhaseArrow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PhaseControl\PhaseControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SeperatorTextBlock\SeperatorTextBlock.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TooglePhoneSLider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

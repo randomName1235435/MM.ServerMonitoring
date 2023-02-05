@@ -1,0 +1,22 @@
+[
+  {
+    "MonitorId": "822170d7-709e-46bc-8c3f-efca7f5671af",
+    "MonitorName": "monitor for server1",
+    "ActionConfiguration": {
+      "ActionId": "622170d7-709e-46bc-8c3f-efca7f5671af",
+      "ActionName": "Ping",
+      "Timeout": "00:00:01",
+      "ParameterCollection": { "TargetName": "192.0.0.1" }
+    }
+  },
+  {
+    "MonitorId": "122170d7-709e-46bc-8c3f-efca7f5671af",
+    "MonitorName": "monitor for server2",
+    "ActionConfiguration": {
+      "ActionId": "622170d7-709e-46bc-8c3f-efca7f5671af",
+      "ActionName": "Ping",
+      "Timeout": "00:00:01",
+      "ParameterCollection": { "TargetName": "192.0.0.1" }
+    }
+  }
+]

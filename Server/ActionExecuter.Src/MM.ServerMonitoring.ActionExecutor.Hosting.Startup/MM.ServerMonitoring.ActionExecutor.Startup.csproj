@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.EntityFramework.Model.Mapper\MM.ServerMonitoring.ActionExecutor.EntityFramework.Model.Mapper.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Hosting.Interface\MM.ServerMonitoring.ActionExecutor.Interface.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Hosting.IocContainer\MM.ServerMonitoring.ActionExecutor.IocContainer.LightInject.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Hosting.Services\MM.ServerMonitoring.ActionExecutor.Services.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Provider.WebApi.Repository.EntityFramework\MM.ServerMonitoring.Repository.EntityFramework.csproj" />
+  </ItemGroup>
+
+</Project>

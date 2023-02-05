@@ -1,0 +1,152 @@
+﻿<infrastructure:WindowBase x:Class="MM.ServerMonitoring.Consumer.Wpf.Shell.Views.Shell.ShellWindow"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:dashboardCounter="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Controls.DashboardCounter;assembly=MM.ServerMonitoring.Consumer.Wpf.Controls"
+                  xmlns:i="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:shell="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Views.Shell"
+                  xmlns:extensions="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Library.Extensions;assembly=MM.ServerMonitoring.Consumer.Wpf.Shell.Library"
+                  xmlns:infrastructure="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Views.Infrastructure"
+                  Title="MM.ServerMonitoring.Consumer.Wpf.Shell"
+                  Closed="MainWindow_OnClosed"
+                  Icon="../../Images/VAI DIGIT TWO2.png"
+                  ResizeMode="CanResize"
+                  Top="{Binding Path= WindowLocationViewModel.Top, Mode=TwoWay}"
+                  Left="{Binding Path=WindowLocationViewModel.Left, Mode=TwoWay}"
+                  Width="{Binding Path=WindowLocationViewModel.Width, Mode=TwoWay}"
+                  Height="{Binding Path=WindowLocationViewModel.Height, Mode=TwoWay}"
+                  extensions:WindowStartupExtension.WindowStartupLocation="{Binding Path=WindowLocationViewModel.StartupLocation, Mode=TwoWay}"
+                  WindowState="{Binding  Path=WindowLocationViewModel.WindowState, Mode=TwoWay}"
+                  WindowStyle="SingleBorderWindow"
+                  d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True,
+                                           Type={x:Type shell:ShellViewModel}}"
+                  mc:Ignorable="d">
+
+    <i:Window.Resources>
+        <i:ResourceDictionary>
+            <i:ResourceDictionary.MergedDictionaries>
+                <i:ResourceDictionary Source="../../Ressources/Ressources.xaml" />
+            </i:ResourceDictionary.MergedDictionaries>
+        </i:ResourceDictionary>
+    </i:Window.Resources>
+    <i:Grid Background="{StaticResource BackgroundDarkBrush}">
+        <i:Grid.RowDefinitions>
+            <i:RowDefinition Height="70" />
+            <i:RowDefinition Height="*" />
+            <i:RowDefinition Height="30" />
+        </i:Grid.RowDefinitions>
+        <i:Grid.ColumnDefinitions>
+            <i:ColumnDefinition Width="70" />
+            <i:ColumnDefinition Width="40" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="10*" />
+            <i:ColumnDefinition Width="40" />
+        </i:Grid.ColumnDefinitions>
+        <TabControl Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="14"
+                    Style="{StaticResource ShellTabControlStyle}"
+                    SelectedItem="{Binding SelectedTab}"
+                    ItemsSource="{Binding ViewItems}">
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <ContentPresenter Content="{Binding Path=View}" />
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="2"
+                                           Counter="{Binding CountMonitor}"
+                                           CounterText="Monitor"
+                                           RectangleBrush="{StaticResource SuccessForegroundBrush}" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="3"
+                                           Counter="{Binding CountActions}"
+                                           CounterText="Actions"
+                                           RectangleBrush="LightSkyBlue" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="4"
+                                           Counter="{Binding CountResults}"
+                                           CounterText="Results"
+                                           RectangleBrush="NavajoWhite" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="5"
+                                           Counter="{Binding CountSuccess}"
+                                           CounterText="Success"
+                                           RectangleBrush="OrangeRed" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="6"
+                                           Counter="{Binding CountFailed}"
+                                           CounterText="Failed"
+                                           RectangleBrush="BlueViolet" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="7"
+                                           Counter="{Binding CountFailedLastHour}"
+                                           CounterText="Failed last hour"
+                                           RectangleBrush="CadetBlue" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="8"
+                                           RectangleBrush="LightGray" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="9"
+                                           RectangleBrush="Violet" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="10"
+                                           RectangleBrush="DarkOliveGreen" />
+        <dashboardCounter:DashboardCounter Grid.Row="0"
+                                           Grid.Column="11"
+                                           RectangleBrush="SandyBrown" />
+
+        <ContentControl Name="LogView"
+                        Grid.Row="0"
+                        Grid.ColumnSpan="5"
+                        Grid.Column="8"
+                        Content="{Binding LogView}" />
+
+        <i:StackPanel Grid.Row="0"
+                      Grid.Column="12"
+                      HorizontalAlignment="Left"
+                      Orientation="Horizontal">
+            <i:Rectangle Width="2"
+                         Height="36"
+                         Margin="0,0,0,0"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Center"
+                         Fill="SteelBlue"
+                         StrokeThickness="0"
+                         Visibility="Collapsed" />
+            <i:Label Height="30"
+                     Margin="3,17,0,0"
+                     VerticalContentAlignment="Center"
+                     Content="Personalized"
+                     FontFamily="Trebuchet MS"
+                     FontSize="11"
+                     Foreground="LightGray"
+                     Visibility="Collapsed" />
+
+        </i:StackPanel>
+        <i:TextBlock Width="Auto" Grid.Row="2"
+                     Grid.Column="0"
+                     Grid.ColumnSpan="14"
+                     Height="30"
+                     Margin="10,0,0,0"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     FontFamily="Trebuchet MS"
+                     FontSize="20"
+                     Foreground="{StaticResource AccentBrush}"
+                     Text="{Binding ErrorMessage}"
+                     TextAlignment="Center" />
+    </i:Grid>
+</infrastructure:WindowBase>

@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="MM.ServerMonitoring.Consumer.Wpf.Controls.DashboardCounter.DashboardCounter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="UserControl"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+             MouseLeftButtonUp="DashboardCounter_OnMouseLeftButtonUp"
+             mc:Ignorable="d">
+    <Grid>
+        <Rectangle Width="2"
+                   Height="36"
+                   Margin="0,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Fill="{Binding RectangleBrush,
+                                  ElementName=UserControl}"
+                   StrokeThickness="0" />
+        <Label
+            Content="{Binding Counter,
+                                 Mode=TwoWay,
+                                 ElementName=UserControl}"
+            Foreground="{Binding Foreground,
+                                    ElementName=UserControl}"
+            Style="{Binding LabelProjectsLeisteZahlStyle,
+                               ElementName=UserControl}" />
+        <Label Width="Auto"
+               Content="{Binding CounterText,
+                                 ElementName=UserControl}"
+               Foreground="{Binding Foreground,
+                                    ElementName=UserControl}"
+               Style="{Binding LabelProjectsLeisteTextStyle,
+                               ElementName=UserControl}" />
+    </Grid>
+</UserControl>

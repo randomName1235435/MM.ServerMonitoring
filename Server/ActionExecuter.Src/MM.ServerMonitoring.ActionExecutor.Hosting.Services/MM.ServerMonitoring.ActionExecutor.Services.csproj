@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared.Src\MM.ServerMonitoring.Provider.WebApi.Repository.EntityFramework.Interface\MM.ServerMonitoring.Repository.EntityFramework.Interface.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Actions.HttpRequest\MM.ServerMonitoring.ActionExecutor.Actions.HttpRequest.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Hosting.Actions.PingAction\MM.ServerMonitoring.ActionExecutor.Actions.PingAction.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Hosting.Interface\MM.ServerMonitoring.ActionExecutor.Interface.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Infrastructure\MM.ServerMonitoring.ActionExecutor.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Hosting.Interface\MM.ServerMonitoring.ActionExecutor.Interface.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Hosting.Model\MM.ServerMonitoring.ActionExecutor.Model.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.ActionExecutor.Infrastructure\MM.ServerMonitoring.ActionExecutor.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

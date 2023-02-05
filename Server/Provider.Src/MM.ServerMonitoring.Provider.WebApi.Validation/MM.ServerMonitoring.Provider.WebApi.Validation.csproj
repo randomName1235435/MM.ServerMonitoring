@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LanguageExt.Core" Version="4.2.9" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared.Src\MM.ServerMonitoring.Provider.WebApi.Repository.EntityFramework.Model\MM.ServerMonitoring.Repository.EntityFramework.Model.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Provider.WebApi.Interface\MM.ServerMonitoring.Provider.WebApi.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="LanguageExt.Core">
+      <HintPath>..\..\..\.nuget\packages\languageext.core\4.2.9\lib\netstandard2.0\LanguageExt.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

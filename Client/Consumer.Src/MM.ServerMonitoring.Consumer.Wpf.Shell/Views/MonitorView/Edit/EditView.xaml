@@ -1,0 +1,170 @@
+﻿<infrastructure:ViewBase x:Class="MM.ServerMonitoring.Consumer.Wpf.Shell.Views.MonitorView.Edit.EditView"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:shell="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Views.Shell"
+                xmlns:watermarkTextBox="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Controls.WatermarkTextBox;assembly=MM.ServerMonitoring.Consumer.Wpf.Controls"
+                xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+                xmlns:filterableComboBox="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Controls.FilterableComboBox;assembly=MM.ServerMonitoring.Consumer.Wpf.Controls"
+                xmlns:controls="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Library.Controls;assembly=MM.ServerMonitoring.Consumer.Wpf.Shell.Library"
+                xmlns:local="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Views.MonitorView.Edit"
+                xmlns:inPlaceValidation="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Library.InPlaceValidation;assembly=MM.ServerMonitoring.Consumer.Wpf.Shell.Library"
+                xmlns:infrastructure="clr-namespace:MM.ServerMonitoring.Consumer.Wpf.Shell.Views.Infrastructure"
+                Language="de-de"
+                d:DesignHeight="1200"
+                d:DesignWidth="345"
+                mc:Ignorable="d"
+                d:DataContext="{d:DesignInstance IsDesignTimeCreatable=True,
+                                           Type={x:Type local:EditViewModel}}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../Ressources/Ressources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer PanningMode="Both"
+                      VerticalScrollBarVisibility="Hidden">
+            <Grid Background="{StaticResource BackgroundDarkBrush}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="75" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"
+                            Margin="0,0,0,45"
+                            Orientation="Vertical">
+                    <watermarkTextBox:WatermarkTextBox
+                        IsEnabled="False"
+                        Style="{StaticResource EditWaterMarkTextBoxStyle}"
+                        Text="{Binding EditItem.Id}"
+                        Watermark="id" />
+                    <watermarkTextBox:WatermarkTextBox
+                        Style="{StaticResource EditWaterMarkTextBoxStyle}"
+                        Watermark="name...">
+                        <watermarkTextBox:WatermarkTextBox.Text>
+                            <Binding Mode="TwoWay"
+                                     NotifyOnValidationError="True"
+                                     Path="EditItem.Name"
+                                     UpdateSourceTrigger="PropertyChanged"
+                                     ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <inPlaceValidation:NotEmptyValidationRule IsEnabled="true"
+                                                                              ValidatesOnTargetUpdated="True" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </watermarkTextBox:WatermarkTextBox.Text>
+                    </watermarkTextBox:WatermarkTextBox>
+                    <watermarkTextBox:WatermarkTextBox
+                        Style="{StaticResource EditWaterMarkTextBoxStyle}"
+                        Watermark="description...">
+                        <watermarkTextBox:WatermarkTextBox.Text>
+                            <Binding Mode="TwoWay"
+                                     NotifyOnValidationError="True"
+                                     Path="EditItem.Description"
+                                     UpdateSourceTrigger="PropertyChanged"
+                                     ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <inPlaceValidation:NotEmptyValidationRule IsEnabled="true"
+                                                                              ValidatesOnTargetUpdated="True" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </watermarkTextBox:WatermarkTextBox.Text>
+                    </watermarkTextBox:WatermarkTextBox>
+                    <filterableComboBox:FilterableComboBox Style="{StaticResource FilterableComboBoxStyle}"
+                                                           ItemsSource="{Binding TargetList}"
+                                                           IsEditable="True"
+                                                           IsTextSearchEnabled="True"
+                                                           Validation.ErrorTemplate="{StaticResource ComboErrorTemplate}">
+                        <filterableComboBox:FilterableComboBox.SelectedItem>
+                            <Binding Mode="TwoWay"
+                                     NotifyOnValidationError="True"
+                                     Path="SelectedTarget"
+                                     UpdateSourceTrigger="PropertyChanged"
+                                     ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <inPlaceValidation:NotEmptySelectionValidationRule IsEnabled="true"
+                                        ValidatesOnTargetUpdated="True" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </filterableComboBox:FilterableComboBox.SelectedItem>
+                        <b:Interaction.Behaviors>
+                            <filterableComboBox:FilterableComboBoxWatermarkBehavior Watermark="target .." />
+                        </b:Interaction.Behaviors>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="SelectionChanged">
+                                <b:CallMethodAction MethodName="UpdateSourceFromSelectedItemBindingExpression"
+                                                    TargetObject="{Binding ElementName=UserControl}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </filterableComboBox:FilterableComboBox>
+                    <filterableComboBox:FilterableComboBox Style="{StaticResource FilterableComboBoxStyle}"
+                                                           ItemsSource="{Binding ActionList}"
+                                                           IsEditable="True"
+                                                           IsTextSearchEnabled="True"
+                                                           Validation.ErrorTemplate="{StaticResource ComboErrorTemplate}">
+                        <filterableComboBox:FilterableComboBox.SelectedItem>
+                            <Binding Mode="TwoWay"
+                                     NotifyOnValidationError="True"
+                                     Path="SelectedAction"
+                                     UpdateSourceTrigger="PropertyChanged"
+                                     ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <inPlaceValidation:NotEmptySelectionValidationRule IsEnabled="true"
+                                        ValidatesOnTargetUpdated="True" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </filterableComboBox:FilterableComboBox.SelectedItem>
+                        <b:Interaction.Behaviors>
+                            <filterableComboBox:FilterableComboBoxWatermarkBehavior Watermark="action .." />
+                        </b:Interaction.Behaviors>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="SelectionChanged">
+                                <b:CallMethodAction MethodName="UpdateSourceFromSelectedItemBindingExpression"
+                                                    TargetObject="{Binding ElementName=UserControl}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </filterableComboBox:FilterableComboBox>
+                    <filterableComboBox:FilterableComboBox Style="{StaticResource FilterableComboBoxStyle}"
+                                                           ItemsSource="{Binding ParameterList}"
+                                                           IsEditable="True"
+                                                           IsTextSearchEnabled="True"
+                                                           Validation.ErrorTemplate="{StaticResource ComboErrorTemplate}">
+                        <filterableComboBox:FilterableComboBox.SelectedItem>
+                            <Binding Mode="TwoWay"
+                                     NotifyOnValidationError="True"
+                                     Path="SelectedParameter"
+                                     UpdateSourceTrigger="PropertyChanged"
+                                     ValidatesOnDataErrors="True">
+                                <Binding.ValidationRules>
+                                    <inPlaceValidation:NotEmptySelectionValidationRule IsEnabled="true"
+                                        ValidatesOnTargetUpdated="True" />
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </filterableComboBox:FilterableComboBox.SelectedItem>
+                        <b:Interaction.Behaviors>
+                            <filterableComboBox:FilterableComboBoxWatermarkBehavior Watermark="parameter .." />
+                        </b:Interaction.Behaviors>
+                        <b:Interaction.Triggers>
+                            <b:EventTrigger EventName="SelectionChanged">
+                                <b:CallMethodAction MethodName="UpdateSourceFromSelectedItemBindingExpression"
+                                                    TargetObject="{Binding ElementName=UserControl}" />
+                            </b:EventTrigger>
+                        </b:Interaction.Triggers>
+                    </filterableComboBox:FilterableComboBox>
+                </StackPanel>
+
+                <Button Grid.Row="1"
+                        Command="{Binding SaveCommand}"
+                        CommandParameter="{Binding EditItem}"
+                        Content="save"
+                        Style="{StaticResource SaveButtonStyle}" />
+                <controls:OpacityDependentVisibilityTextBlock Grid.Row="1"
+                                                              Style="{StaticResource ResultTexBlockStyle}"
+                                                              Text="&#xE001;"
+                                                              Visibility="{Binding SavedSuccessfulTextBlockVisibility, Mode=TwoWay}" />
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</infrastructure:ViewBase>

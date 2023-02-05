@@ -1,0 +1,69 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>annotations</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="favicon.ico" />
+    <None Remove="Images\VAI DIGIT TWO.png" />
+    <None Remove="Images\VAI DIGIT TWO2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+    <PackageReference Include="Prism.Core" Version="8.1.97" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared.Src\MM.ServerMonitoring.Provider.WebApi.Dto.Model\MM.ServerMonitoring.Provider.WebApi.Dto.Model.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.Controls\MM.ServerMonitoring.Consumer.Wpf.Controls.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.Interface\MM.ServerMonitoring.Consumer.Wpf.Interface.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.IocContainer.LightInject\MM.ServerMonitoring.Consumer.Wpf.IocContainer.LightInject.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.Logging\MM.ServerMonitoring.Consumer.Wpf.Logging.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.Repository.Rest.Refit\MM.ServerMonitoring.Consumer.Wpf.Repository.Rest.Refit.csproj" />
+    <ProjectReference Include="..\MM.ServerMonitoring.Consumer.Wpf.Shell.Library\MM.ServerMonitoring.Consumer.Wpf.Shell.Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="favicon.ico" />
+    <Resource Include="Images\VAI DIGIT TWO.png" />
+    <Resource Include="Images\VAI DIGIT TWO2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Shell\ShellWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Ressources\Ressources.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Shell\ShellWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MonitorView\Edit\EditView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MonitorView\MonitorView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MonitorView\Insert\InsertVIew.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SimpleActionResultView\SimpleActionResultView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\SimpleActionResultView\Commands\" />
+  </ItemGroup>
+
+</Project>
