@@ -8,6 +8,7 @@ Features:
 Structure:
 Client
 	Consumer
+ 
 	* WPF
 	* ViewComposition with PRISM
 	* IOC with Lightinject
@@ -16,6 +17,7 @@ Client
 	* validation responsive controls
 	* filterable combobox
 	* async/await
+ 
 Server
 	
 	Provider
